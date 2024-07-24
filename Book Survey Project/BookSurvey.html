@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Ass9.css">
+    <title>Assignment 9</title>
+</head>
+<body>
+    <header><h1>Book Survey</h1></header>
+    <nav></nav>
+    <main>
+        <form method= "post" action ="https://informatics.plus/fun/form.php">
+        
+        <fieldset>
+        <legend>Student Information</legend>
+        
+            <label>Name:
+                <input type="text" name="Name" id="Name" required>
+            </label><br>
+        
+        
+            <label>Email:
+                <input type= "email" name="Email:" id="Email" required>
+            </label>
+        
+        </fieldset>
+        <fieldset>
+        <legend>Select your age group</legend>
+            <input type="radio" id="age1" name="age" value="12-17">
+            <label class="age" for="age1">12 - 17</label>
+            <input type="radio"  id="age2" name="age" value="18-24">
+            <label class="age" for="age2">18 - 24</label>
+            <input type="radio"  id="age3" name="age" value="25-34">
+            <label class="age" for="age3">25 - 34</label>
+            <input type="radio"  id="age4" name="age" value="35-44">
+            <label class="age" for="age4">35 - 44</label><br>
+            <input type="radio"  id="age5" name="age" value="45-54">
+            <label class="age" for="age5">45 - 54</label>
+            <input type="radio"  id="age6" name="age" value="55-64">
+            <label class="age" for="age6">55 - 64</label>
+            <input type="radio"  id="age7" name="age" value="65-74">
+            <label class="age" for="age7">65 - 74</label>
+            <input type="radio"  id="age8" name="age" value="75-120">
+            <label class="age" for="age8">75+</label>
+        </fieldset>
+        <fieldset>
+        <legend>Select your favorite type(s) of books:</legend>
+            <table>
+            <tr>
+            <td><input type="checkbox" id="Science" name="Fav_Book_Type[]" value="Science">
+            <label>Science</label></td>
+            <td><input type="checkbox" id="Arts" name="Fav_Book_Type[]" value="Arts">
+            <label>Arts</label></td>
+            </tr>
+            <tr>
+            <td><input type="checkbox" id="Non-Fiction" name="Fav_Book_Type[]" value="Non-Fiction">
+            <label>Non-Fiction</label></td>
+            <td><input type="checkbox" id="Fiction" name="Fav_Book_Type[]" value="Fiction">
+            <label>Fiction</label></td>
+            </tr><tr>
+            <td><input type="checkbox" id="Social-Studies" name="Fav_Book_Type[]" value="Social-Studies">
+            <label>Social studies</label></td>
+            <td><input type="checkbox" id="Other" name="Fav_Book_Type[]" value="Other">
+            <label>Other</label></td>
+            </tr>
+            </table>
+        </fieldset>
+
+
+        <fieldset id="locbox">
+        <legend>Select the primary location you obtain books:</legend>
+        <select id="location" name="location">
+            <option disabled selected>Choose Option</option>
+            <option value="Library">The Library</option>
+            <option value="Amazon"> Amazon bookstore</option>
+            <option value="Library of Congress">Congress</option>
+            <option value="Vatican Library">Vatican Library</option>
+        </select>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>What role does reading books play in your life?</legend>
+            <textarea name="Role" id="Role"></textarea>
+        </fieldset>
+        <input type="submit" name="submit">
+        <input type="reset">
+        </form>
+    </main>
+    <footer></footer>
+</body>
+</html>
+
+

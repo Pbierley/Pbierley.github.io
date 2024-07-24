@@ -1,0 +1,17 @@
+legend{
+    color: blue;
+}
+#Role{
+    overflow: scroll;
+    width: 40ch;
+    min-height: 8ch;
+}
+fieldset{
+    width: 60vw;
+}
+#Name{
+    margin-bottom: 10px;
+}
+.age{
+    margin-right: 10px;
+}
