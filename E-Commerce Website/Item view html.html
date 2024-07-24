@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .current-image.img{
+            max-width: 100%;
+            height:auto;
+        }
+        .thumbnail-images{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .thumbnail-images img{
+            max-width: 100px;
+            height:auto;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color .3s ease;
+        }
+        .thumbnail-images img:hover,
+        .thumbnail-images img:focus{
+            border-color: black;
+        }
+        .listViewImg{
+            width: 20vw;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Gallery</h1>
+    </header>
+    <main>
+        <div class="gallery-container">
+            <div class="current-image">
+                <img src="https://placehold.co/600x400?text=Photo+1" alt="Photo 1" id="main-image">
+            </div>
+            <div class="thumbnail-images">
+                <img src="https://placehold.co/600x400?text=Photo+1" alt="Photo 1" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+2" alt="Photo 2" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+3" alt="Photo 3" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+4" alt="Photo 4" onclick="changeImage(this)">
+            </div>
+</div>
+    </main>
+    <script>
+        function changeImage(clickedImage){
+            var mainImage = document.getElementById("main-image")
+            mainImage.src = clickedImage.src;
+            mainImage.alt = clickedImage.alt;
+        }
+       
+       
+       </script>
+</body>
+
+</html>

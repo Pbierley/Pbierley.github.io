@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethan & Philip Final Project INF286</title>
+<style>
+#initalTableMessage{
+display: none;
+}
+.listViewImg{
+width: 20vw;
+}
+
+select{
+min-width: 20vw;
+border-radius: 5px;
+}
+#highlight:hover{
+background-color: rgb(255, 195, 121);
+}
+#itemViewWrapper{
+display: none;
+}
+tr:nth-child(even) {
+background-color: rgb(171, 171, 171);
+}
+@media screen and (min-width: 0px) and (max-width: 500px) {
+#remove4mobile{
+    display: none;
+}
+}
+#main-image{
+max-width: 90vw;
+height: auto;
+width: auto;
+}
+h1{
+    display: inline-block;
+}
+th{
+border-radius: 10px;
+}
+.gallery-container {
+text-align: center;
+max-width: 80vw;
+margin: 0 auto;
+padding: 20px;
+}
+
+.thumbnail-images{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+}
+#currentImageDiv{
+overflow: hidden;
+min-width: 60vw;
+}
+.thumbnail-images img{
+max-width: 100px;
+height:auto;
+cursor: pointer;
+border: 2px solid transparent;
+transition: border-color .3s ease;
+}
+.thumbnail-images img:hover,
+.thumbnail-images img:focus{
+border-color: black;
+}
+button{
+float: right;
+min-width: 50px;
+background-color: red;
+border-radius: 5px;
+}
+body{
+background-color: rgb(165, 165, 165);
+margin: 0px;
+}
+thead{
+color: rgb(0, 0, 0);
+border-bottom: 5px solid gray;
+background-color: rgb(165, 165, 165);
+}
+#loading{
+background-color: rgb(255, 195, 121);
+}
+#loader{
+background-color: rgb(255, 195, 121);
+}
+table{
+min-width: 98vw;
+}
+#wrapper {
+background-color: gray;
+border-radius: 10px;
+}
+#itemTable{
+border-bottom: 5px solid black;
+}
+#buyButton{
+padding: 10px;
+margin: 10px;
+}
+</style>
+</head>
+<body>
+<div id = listViewScreen>
+<div id="loading">
+<span class="state">Loading...</span>
+</div>
+<div id="wrapper">
+<header>
+<h1>The Illegall Online Store</h1>
+</header>
+<nav id="categories">
+<div class="state" id="loader">Loading Categories...</div>
+</nav>
+<main>
+<table id="listView">
+    <thead id="remove4mobile">
+        <tr>
+                <th id="item" colspan="2" scope="colgroup">Item</th>
+                <th id="desc" scope="col">Description</th>
+                <th id="Price" scope="col">Price</th>
+        </tr>
+    </thead>
+<tbody id="tableItems">
+</tbody>
+</table>
+</div>
+</div>
+<!--Item View-->
+<div id="itemViewWrapper">
+<header>
+<h1>The Illegal Online Store</h1>
+</header>
+<article>
+<button onclick="hideItem();">x</button>
+<div id="borderDiv"></div>
+<table id="itemTable" >
+    <tr>
+        <td>
+            <h1 id="productName">(product name)</h1>
+        </td>
+        <td>
+            <h1>$</h1><h1 id="price">$${{x.xx}}</h1>
+        </td>
+</tr>
+<div id="table">
+</table>
+    <table>
+        <tr>
+            <td>
+                <div class="gallery-container">
+                <div class="current-image" id="currentImageDiv">
+                <img src="" alt="Photo 1" id="main-image">
+                <div class="thumbnail-images">
+                <img src="https://placehold.co/600x400?text=Photo+1" alt="Photo 1" id="P1" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+2" alt="Photo 2" id="P2" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+3" alt="Photo 3" id="P3" onclick="changeImage(this)">
+                <img src="https://placehold.co/600x400?text=Photo+4" alt="Photo 4" id="P4" onclick="changeImage(this)">
+                </div>
+                </div> 
+                </div>
+            </td> 
+             
+            <td>
+                <p id="descriptionFull">description</p>
+            </td>          
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div id="description&selectors">
+                <div id="sizeSelector">
+                <select name="size" id="size">Size:
+                </select>
+                </div>
+                </div>
+                <div id="colorSelector">
+                <select name="color" id="color">Color:
+                </select>
+                </div>
+                <div id="QuantitySelector">
+                <select name="quantity" id="quantity">Qty:
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                </select>
+                </div>
+                <button id="buyButton">BUY NOW</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</article>
+</div>
+</main>
+<script>
+const api_url="https://6245f389e3450d61b0f926c1.mockapi.io/api/v1/";
+
+// Function to show the loader
+function showLoader() {
+document.querySelector("#loading").style.display = 'block';
+}
+// Function to hide the loader
+function hideLoader() {
+document.querySelector('#loading').style.display = 'none';
+}
+async function getApiData(url) {
+try {
+let connection = await fetch(url);
+return await connection.json(); // produces an object
+} catch (error) {
+console.log(error);
+}
+}
+async function processCategories() {
+showLoader();
+let results = await getApiData(api_url+"categories");
+if(results){
+hideLoader();
+}
+console.log(typeof(results)); // = object, because getApiData returns an object
+console.log(results);
+let html = '<span>Filter: </span>';
+results.forEach(category => {
+let htmlSegment = `<label>
+<input type="radio" name="category" onclick="processItems(${category.id});">
+${category.name}</label>`;
+html += htmlSegment;
+});
+let categoryContainer = document.querySelector('nav');
+categoryContainer.innerHTML = html;
+}
+
+async function processItems(category) {
+showLoader();
+// results will contain a json object
+let results = await getApiData(api_url+"categories/"+category+"/items");
+if(results){
+hideLoader();
+}
+let itemCount = (results.totalCount);
+let results1 =(results);
+var table = document.getElementById('tableItems');
+table.innerHTML = "";
+for (var i = 0; i < itemCount; i++){
+var row = `<tr id= "highlight" onclick = "displayItem(${category},${results1.items[i].itemId})">
+<td><img src = '${results1.items[i].image[0]}'class="listViewImg"></td>
+<td>${results1.items[i].itemName}</td>
+<td>${results1.items[i].itemBrief}</</td>
+<td>$${results1.items[i].price}</td>
+</tr>`;
+table.innerHTML += row;
+};
+}
+
+async function displayItem(category, id) {
+showLoader();
+let results = await getApiData(api_url+"categories/"+category+"/items/"+id);
+if(results){
+hideLoader();
+}
+hideList();
+showItemView();
+var category = category;
+console.log(results);
+console.log(results.itemName);
+document.querySelector('#productName').innerHTML = (results.itemName);
+document.querySelector('#price').innerHTML = (results.price);
+document.querySelector('#main-image').src = (results.image[0]);
+
+//Create loop for this
+document.querySelector('#P1').src = (results.image[0]);
+document.querySelector('#P2').src = (results.image[1]);
+document.querySelector('#P3').src = (results.image[2]);
+document.querySelector('#P4').src = (results.image[3]);
+document.querySelector('#descriptionFull').innerHTML = (results.itemFull);
+// Size dropdown
+const sizeSelect = document.getElementById('size');
+// Sets the var options
+const sizeOptions = results.size;
+// Loop through the options array and add them to the select element
+for (let i = 0; i < sizeOptions.length; i++) {
+const optionElement = document.createElement('option');
+optionElement.value = sizeOptions[i];
+optionElement.text = sizeOptions[i];
+sizeSelect.appendChild(optionElement);
+}
+
+//color dropdown
+const colorSelect = document.getElementById('color');
+const colorOptions = results.colors;
+for (let i = 0; i < colorOptions.length; i++) {
+const optionElement = document.createElement('option');
+optionElement.value = colorOptions[i];
+optionElement.text = colorOptions[i];
+colorSelect.appendChild(optionElement);
+}
+
+};
+function changeImage(clickedImage){
+var mainImage = document.getElementById("main-image");
+mainImage.src = clickedImage.src;
+mainImage.alt = clickedImage.alt;
+}
+function showItemView(){
+document.querySelector('#itemViewWrapper').style.display = 'inline';
+}
+function hideItemView(){
+document.querySelector('#itemViewWrapper').style.display = 'none';
+}
+
+function hideList() {
+document.querySelector('#listViewScreen').style.display = 'none';
+}
+function showList() {
+document.querySelector('#listViewScreen').style.display = 'inline';
+}
+function hideItem(category){
+showLoader();
+clearColor();
+clearSize();
+hideItemView();
+showList();
+if(showList){
+hideLoader();
+}
+
+}
+function clearColor() {
+var selectElement = document.getElementById("color");
+while (selectElement.options.length > 0) {
+selectElement.remove(0);
+}
+}
+function clearSize() {
+var selectElement = document.getElementById("size");
+while (selectElement.options.length > 0) {
+selectElement.remove(0);
+}
+};
+</script>
+<script>
+processCategories();
+</script>
+</body>
+</html>
