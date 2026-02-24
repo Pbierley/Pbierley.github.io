@@ -67,6 +67,19 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        .hero-image-wrap {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(59, 130, 246, 0.7);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.25);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -92,6 +105,12 @@
             font-size: 1.5rem;
             color: #9ca3af;
             margin-bottom: 2rem;
+        }
+
+        .hero-content .contact-line {
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            font-size: 1rem;
         }
 
         .cta-buttons {
@@ -182,6 +201,24 @@
             color: #9ca3af;
             font-size: 0.9rem;
             margin-bottom: 1rem;
+        }
+
+        .card .highlight {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        .achievement-image-wrap {
+            margin-top: 1.25rem;
+            text-align: center;
+        }
+
+        .achievement-image {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
 
         .card ul {
@@ -317,11 +354,15 @@
 
     <header>
         <div class="hero-content">
+            <div class="hero-image-wrap">
+                <img src="images/headshot.jpg" alt="Philip Bierley headshot" class="hero-image">
+            </div>
             <h1>Philip Bierley</h1>
-            <p class="subtitle">Software Engineer | Full Stack Developer | Problem Solver</p>
+            <p class="subtitle">Software Engineer | CS & Applied Software Engineering Double Major</p>
+            <p class="contact-line">Cincinnati, OH | P.bierley@yahoo.com | 606-748-4085</p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="https://github.com/Pbierley" target="_blank" class="btn btn-secondary">View GitHub</a>
+                <a href="https://www.linkedin.com/in/philip-bierley/" target="_blank" class="btn btn-secondary">View LinkedIn</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -332,13 +373,12 @@
     <main>
         <section id="about">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">Summary</h2>
                 <div class="card">
                     <p style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: 0 auto;">
-                        I'm a Computer Science and Applied Software Engineering student at Northern Kentucky University with a 3.76 GPA. 
-                        Currently working as a Software Engineer at Fischer Homes, I'm passionate about building efficient, scalable solutions 
-                        and continuously expanding my technical expertise. From developing AI-powered tools to managing full-stack applications, 
-                        I thrive on solving complex problems and creating meaningful impact through technology.
+                        Double Major in CS and Applied Software Engineering, specializing in full-stack systems.
+                        Proven developer and entrepreneur with experience refactoring monolithic architectures,
+                        building AI-driven tools, and giving award-winning pitches.
                     </p>
                 </div>
             </div>
@@ -352,21 +392,21 @@
                     <h3>Software Engineer</h3>
                     <p class="meta">Fischer Homes | Erlanger, KY | January 2025 – Present</p>
                     <ul>
-                        <li>Implemented new features, database migrations, and bug fixes using JavaScript, TypeScript, React, Redux, Bitbucket, Git, and Jira</li>
-                        <li>Built an automated email system to relay REST API call results from a third-party application to Helpdesk ticketing System</li>
-                        <li>Conducted code reviews and managed pull request workflows ensuring quality and consistency</li>
+                        <li>Awarded AI "Penny Pincher" for developing a tool that analyzed large datasets to identify recurring issues across home types and vendors</li>
+                        <li>Implemented new features, database migrations, and bug fixes using JavaScript, TypeScript, React, Redux, Bitbucket, Git, and Jira, reducing customer complaints and boosting productivity</li>
+                        <li>Built an automated email system to relay third-party REST API results to the Helpdesk ticketing system, reducing internal work demand</li>
+                        <li>Conducted code reviews and managed pull request workflows to ensure quality and consistency</li>
                         <li>Developed integration tests for the sales CRM backend, ensuring test coverage for each pull request</li>
-                        <li>Received AI "Penny Pincher" award for developing a tool that analyzed large datasets to identify recurring issues</li>
                     </ul>
                 </div>
 
                 <div class="card">
                     <h3>Owner & Computer Technician</h3>
-                    <p class="meta">Winfield Computing | Flemingsburg, KY | August 2021 – Present</p>
+                    <p class="meta">Winfield Computing | Flemingsburg, KY | August 2021 – December 2025</p>
                     <ul>
-                        <li>Automated business tasks by developing a profitability calculator, task scheduler, and JavaScript tools</li>
-                        <li>Utilized Ubuntu and Linux software to install and manage hardware remotely</li>
-                        <li>Built and managed cryptocurrency mining hardware to support blockchain security</li>
+                        <li>Automated business tasks by developing a profitability calculator, task scheduler, and JavaScript tooling, increasing efficiency</li>
+                        <li>Utilized Linux-based operating systems for server hosting rented for AI workloads</li>
+                        <li>Built and managed cryptocurrency mining hardware to support blockchain security and transaction validation</li>
                     </ul>
                 </div>
             </div>
@@ -374,54 +414,45 @@
 
         <section id="projects">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Projects</h2>
                 
                 <div class="projects-grid">
                     <div class="card">
                         <h3>AI Investor Platform</h3>
                         <p class="meta">NKU Hackathon, sponsored by Fidelity | September 2025</p>
-                        <p>Team project using JavaScript, HTML, CSS, and MongoDB. Built paper trading, AI chatbot, and options simulation tools to help investors make informed decisions.</p>
-                        <a href="https://pbierley.github.io/FidelityHackathon/" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">Visit An Investor!</a>
+                        <p>Engineered a full-stack paper trading platform using MongoDB and JavaScript featuring real-time options simulation and an integrated AI chatbot for fundamental analysis.</p>
+                        <a href="https://pbierley.github.io/FidelityHackathon/" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">View Project</a>
                     </div>
 
                     <div class="card">
-                        <h3>Hand Gesture Wizard game</h3>
-                        <p class="meta">ASE 330 / ASE 485 Final Project | December 2025</p>
-                        <p>Team project using C# and Unity. Developed a 3D hand gesture recognition game with interactive wizard elements and immersive gameplay.</p>
-                        <a href="https://github.com/Pbierley/Pbierley.github.io/raw/main/Wizards%20Game.exe" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;" download>Download Game!</a>
+                        <h3>Hand Gesture Recognition Game</h3>
+                        <p class="meta">Group Project | August 2025 – Current</p>
+                        <p>Developed a gesture-controlled gaming interface utilizing machine learning and Google's MediaPipe. Leveraged local camera feeds to map specific hand postures to offensive and defensive gameplay mechanics.</p>
                     </div>
 
                     <div class="card">
-                        <h3>Stock Tracker Platform</h3>
-                        <p class="meta">Full Stack Development Final Project | May 2025</p>
-                        <p>Developed a stock-focused social site with JavaScript, HTML, CSS, Bootstrap, and MongoDB for cloud storage. Features real-time stock tracking and social interaction.</p>
+                        <h3>Full-Stack Systems Work</h3>
+                        <p class="meta">Ongoing</p>
+                        <p>Built and refined full-stack systems with JavaScript-based frontends, backend APIs, and data workflows focused on reliability and maintainability.</p>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="card">
-                        <h3>Empire Builder Game</h3>
-                        <p class="meta">Individual Project | July 2024</p>
-                        <p>Created an engaging game in Java applying multithreading, inheritance, abstraction, and polymorphism to manage complex gameplay and object interactions.</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Free Cash Flow Tool</h3>
-                        <p class="meta">Financial Analysis Application</p>
-                        <p>Interactive tool for analyzing company financials and calculating free cash flow metrics. Built with Streamlit for real-time financial analysis.</p>
-                        <a href="https://freecashflowtool-rmxuchyhfbk6wrx5vgingf.streamlit.app/" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">View Live Tool</a>
-                    </div>
-
-                    <div class="card">
-                        <h3>Tetris Merge Conflicts</h3>
-                        <p class="meta">Team Project | Python Game Development</p>
-                        <p>Collaborative Tetris game built with Python using pygame. Features classic Tetris gameplay with modern touches, developed through agile sprints with comprehensive test coverage.</p>
-                        <a href="https://github.com/Pbierley/TetrisMergeConflicts" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
-                    </div>
-
-                    <div class="card">
-                        <h3>Fitness Tracker</h3>
-                        <p class="meta">Full Stack Web Application | Laravel & SQLite</p>
-                        <p>Complete fitness tracking application with user authentication, workout management, session tracking, and weight tracking. Built with Laravel 12, PHP 8.2, and containerized with Docker.</p>
-                        <a href="https://pbierley.github.io/FitnessTracker/" target="_blank" class="btn btn-primary" style="margin-top: 1rem; display: inline-block;">View Documentation</a>
+        <section id="stock-pitch">
+            <div class="container">
+                <h2 class="section-title">NKU Stock Pitch Win</h2>
+                <div class="card">
+                    <h3>NKU Haile Stock Pitch | 1st Place Winner ($2,500 Prize)</h3>
+                    <p class="meta">February 2026</p>
+                    <p>
+                        Led a collaborative team in rigorous fundamental and quantitative research to identify undervalued market opportunities.
+                        Synthesized financial data into a high-conviction investment thesis and defended a strategic "strong buy" recommendation
+                        before executive-level finance professionals.
+                    </p>
+                    <p class="highlight" style="margin-top: 0.75rem;">First-place finish in the NKU Haile Stock Pitch competition.</p>
+                    <div class="achievement-image-wrap">
+                        <img src="images/stock-pitch-win.jpg" alt="Philip Bierley winning the NKU stock pitch competition" class="achievement-image">
                     </div>
                 </div>
             </div>
@@ -435,14 +466,15 @@
                     <div class="skill-category">
                         <h3>Programming Languages</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
                             <span class="skill-tag">JavaScript</span>
                             <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
                             <span class="skill-tag">C#</span>
                             <span class="skill-tag">C++</span>
                             <span class="skill-tag">PHP</span>
-                            <span class="skill-tag">HTML & CSS</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML/CSS</span>
                         </div>
                     </div>
 
@@ -451,10 +483,11 @@
                         <div class="skill-tags">
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Redux</span>
-                            <span class="skill-tag">Laravel</span>
-                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
                             <span class="skill-tag">Sequelize</span>
-                            <span class="skill-tag">Pygame</span>
+                            <span class="skill-tag">MediaPipe</span>
+                            <span class="skill-tag">Bootstrap</span>
                         </div>
                     </div>
 
@@ -463,21 +496,24 @@
                         <div class="skill-tags">
                             <span class="skill-tag">AWS</span>
                             <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">MongoDB</span>
                             <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Bitbucket</span>
                             <span class="skill-tag">Jira</span>
                             <span class="skill-tag">Postman</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Mocha</span>
+                            <span class="skill-tag">Chai</span>
+                            <span class="skill-tag">WSL</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <h3>Development Environments</h3>
+                        <h3>Education</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">IntelliJ</span>
-                            <span class="skill-tag">Visual Studio</span>
-                            <span class="skill-tag">WSL</span>
+                            <span class="skill-tag">Northern Kentucky University</span>
+                            <span class="skill-tag">B.S. CS + ASE (Double Major)</span>
+                            <span class="skill-tag">Expected May 2027</span>
+                            <span class="skill-tag">GPA 3.78</span>
                         </div>
                     </div>
                 </div>
@@ -497,8 +533,8 @@
                     <a href="https://www.linkedin.com/in/philip-bierley/" target="_blank" class="contact-link">
                         💼 LinkedIn
                     </a>
-                    <a href="https://github.com/Pbierley" target="_blank" class="contact-link">
-                        👨‍💻 GitHub
+                    <a href="https://pbierley.github.io" target="_blank" class="contact-link">
+                        👨‍💻 GitHub Portfolio
                     </a>
                 </div>
             </div>
