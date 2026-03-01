@@ -2,7 +2,7 @@
 <h1 align="center">Hi 👋, I'm Philip Bierley</h1>
 <h3 align="center">A passionate full-stack developer from the greater Cincinnati</h3>
 
-- 🔭 I’m currently working on [A Free Cash Flow tool](https://github.com/Pbierley/freeCashFlowTool)
+- 🔭 Check out my Github.io page [Github.io]([https://github.com/Pbierley/freeCashFlowTool](https://pbierley.github.io/))
 
 - 🌱 I’m currently learning **C, C#, C++, PHP, and frameworks such as angular**
 
